@@ -10,6 +10,8 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bnvtest.model.MenuC;
 import com.example.bnvtest.model.MenuMockUp;
@@ -21,13 +23,20 @@ public class fragmenu extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmenu, container,false);
-        ListView lstm = view.findViewById(R.id.LSTMENU);
-        MenuMockUp database = new MenuMockUp();
+        RecyclerView recycler = view.findViewById(R.id.menu_recycler);
 
-        ArrayList<MenuC> result = database.getMenus();
+        String[] captions = new String[MenuMockUp.Menus.length];
+        int[] ids = new int[MenuMockUp.Menus.length];
 
-//        ArrayAdapter<MenuC> LSTAdapter = new ArrayAdapter<MenuC>(this, android.R.layout.simple_spinner_dropdown_item,result);
-//        lstm.setAdapter(LSTAdapter);
+
+        for(int i = 0; i<captions.length;i++){
+            captions[i] = MenuMockUp.Menus[i].getName();
+            ids[i] = MenuMockUp.Menus[i].getImg();
+        }
+
+        recycler.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        CardAdapter LSTAdapter = new CardAdapter(captions,ids);
+        recycler.setAdapter(LSTAdapter);
         return view;
     }
 }
