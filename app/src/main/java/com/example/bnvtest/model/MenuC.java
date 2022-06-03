@@ -11,7 +11,7 @@ public class MenuC {
     public MenuC(String name, String description, int img, String navTo) {
         Name = name;
         Description = description;
-        img = img;
+        this.img = img;
         NavTo = navTo;
     }
 

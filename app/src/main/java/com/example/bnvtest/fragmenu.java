@@ -1,5 +1,6 @@
 package com.example.bnvtest;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,16 +27,16 @@ public class fragmenu extends Fragment {
         RecyclerView recycler = view.findViewById(R.id.menu_recycler);
 
         String[] captions = new String[MenuMockUp.Menus.length];
-        int[] ids = new int[MenuMockUp.Menus.length];
+        int[] imgs = new int[MenuMockUp.Menus.length];
 
 
         for(int i = 0; i<captions.length;i++){
             captions[i] = MenuMockUp.Menus[i].getName();
-            ids[i] = MenuMockUp.Menus[i].getImg();
+            imgs[i] = MenuMockUp.Menus[i].getImg();
         }
 
         recycler.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        CardAdapter LSTAdapter = new CardAdapter(captions,ids);
+        CardAdapter LSTAdapter = new CardAdapter(captions,imgs);
         recycler.setAdapter(LSTAdapter);
         return view;
     }

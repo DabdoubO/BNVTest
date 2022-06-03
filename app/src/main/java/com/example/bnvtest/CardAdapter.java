@@ -35,10 +35,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
-        Button btn = cardView.findViewById(R.id.CardButton);
+        TextView txt = cardView.findViewById(R.id.CardText);
+        ImageView img = cardView.findViewById(R.id.CardImage);
         Drawable dr = ContextCompat.getDrawable(cardView.getContext(), imageIds[position]);
-        btn.setText(captions[position]);
-        btn.setBackground(dr);
+        txt.setText(captions[position]);
+        img.setImageDrawable(dr);
         cardView.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View v){

@@ -6,27 +6,13 @@
 
 
 
-    <TextView
-        android:id="@+id/TV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="this is the menu, it should contain a listView containing
-the main catigories, these cats should be clickable, inside them there is a recycler view"
-        android:textSize="20dp"/>
 
-    <!--<ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listv"
-        android:layout_below="@+id/TV"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
 
         android:id="@+id/menu_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/TV"
         android:scrollbars="vertical"
         android:layout_marginTop="25dp"/>
 
