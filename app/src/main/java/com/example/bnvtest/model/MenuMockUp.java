@@ -2,8 +2,6 @@ package com.example.bnvtest.model;
 
 import com.example.bnvtest.R;
 
-import java.util.ArrayList;
-
 public class MenuMockUp {
 
 
@@ -16,5 +14,23 @@ public class MenuMockUp {
         new MenuC("BEER","beeraaa", R.drawable.beer, "lstBEER"),
         new MenuC("Sheesha","argila", R.drawable.sheesha, "lstShsh")
     };
+
+    public static final prodC[] products = {
+            new prodC("maqloba", "launch", 19, R.drawable.maqluba),
+            new prodC("lubia", "launch",20, R.drawable.lubia),
+            new prodC("cold shosmo", "Cold Drinks", 15, R.drawable.coldsho),
+            new prodC("shoqalata", "Cold Drinks", 13, R.drawable.shoqalata)
+
+
+    };
+
+    public static int getCatLength(String cat){
+        int L = 0;
+        for (prodC product : products) {
+            if (product.getCat().equals(cat))
+                L++;
+        }
+        return L;
+    }
 
 }
