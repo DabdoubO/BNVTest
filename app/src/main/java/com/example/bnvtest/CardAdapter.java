@@ -1,12 +1,16 @@
 package com.example.bnvtest;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -43,7 +47,9 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
         cardView.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //
+                Intent intent = new Intent(cardView.getContext(), ProductActivity.class);
+                intent.putExtra("SELECTED", txt.getText());
+                cardView.getContext().startActivity(intent);
             }
         });
     }
