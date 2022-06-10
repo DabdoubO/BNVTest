@@ -33,6 +33,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
                 parent,
                 false);
 
+
         return new ViewHolder(v);
     }
 
@@ -41,13 +42,18 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
         CardView cardView = holder.cardView;
         TextView txt = cardView.findViewById(R.id.CardText);
         ImageView img = cardView.findViewById(R.id.CardImage);
+
         Drawable dr = ContextCompat.getDrawable(cardView.getContext(), imageIds[position]);
         txt.setText(captions[position]);
         img.setImageDrawable(dr);
         cardView.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(cardView.getContext(), ProductActivity.class);
+                Intent intent;
+                if (cardView.getContext().toString().contains("MainActivity"))
+                    intent = new Intent(cardView.getContext(), ProductActivity.class);
+                else
+                    intent = new Intent(cardView.getContext(), ProductDetailsActivity.class);
                 intent.putExtra("SELECTED", txt.getText());
                 cardView.getContext().startActivity(intent);
             }

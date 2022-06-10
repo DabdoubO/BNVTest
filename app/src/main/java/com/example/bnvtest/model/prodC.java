@@ -4,7 +4,24 @@ public class prodC {
     String name;
     String cat;
     float price;
+    String details;
     int img;
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public prodC(String name, String cat, float price, String details, int img) {
+        this.name = name;
+        this.cat = cat;
+        this.price = price;
+        this.details = details;
+        this.img = img;
+    }
 
     public prodC(String name, String cat, float price, int img) {
         this.name = name;

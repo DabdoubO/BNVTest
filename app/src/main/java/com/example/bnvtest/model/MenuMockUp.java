@@ -16,13 +16,35 @@ public class MenuMockUp {
     };
 
     public static final prodC[] products = {
-            new prodC("maqloba", "launch", 19, R.drawable.maqluba),
-            new prodC("lubia", "launch",20, R.drawable.lubia),
-            new prodC("cold shosmo", "Cold Drinks", 15, R.drawable.coldsho),
-            new prodC("shoqalata", "Cold Drinks", 13, R.drawable.shoqalata)
+            new prodC("maqloba", "launch", 19,"you will love our maqloba 5awa", R.drawable.maqluba),
+            new prodC("lubia", "launch",20,"who eats lubia you sick fuck?", R.drawable.lubia),
+            new prodC("cold shosmo", "Cold Drinks", 15,"ya7eeee bebarrred", R.drawable.coldsho),
+            new prodC("shoqalata", "Cold Drinks", 13,"the fastest way to your girlfriends heart", R.drawable.shoqalata)
 
 
     };
+
+    public static String getDetailsByName(String name){
+        String n = "w";
+        for (prodC product : products){
+            if (product.getName().equals(name)) {
+                n = product.getDetails();
+                return n;
+            }
+        }
+        return n;
+    }
+
+    public static int getImageByName(String name){
+        int m = 0;
+        for (prodC product : products){
+            if (product.getName().equals(name)) {
+                m = product.getImg();
+                return m;
+            }
+        }
+        return m;
+    }
 
     public static int getCatLength(String cat){
         int L = 0;

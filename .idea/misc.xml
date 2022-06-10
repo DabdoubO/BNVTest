@@ -8,6 +8,8 @@
         <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1115" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/layout/activity_product.xml" value="0.25" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/layout/activity_product_details.xml" value="0.24351851851851852" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/layout/card.xml" value="0.25" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/layout/fragcart.xml" value="0.25" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/layout/fraghome.xml" value="0.25" />
@@ -16,6 +18,7 @@
         <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/layout/fragprofile.xml" value="0.25" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/layout/productlist.xml" value="0.25" />
         <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/menu/bnv.xml" value="0.4" />
+        <entry key="..\:/Users/Hp/AndroidStudioProjects/BNVTest/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1895" />
       </map>
     </option>
   </component>
