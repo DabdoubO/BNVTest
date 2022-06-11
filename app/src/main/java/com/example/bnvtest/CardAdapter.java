@@ -17,13 +17,17 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
-    private String[] captions;
-    private int[] imageIds;
+import com.bumptech.glide.Glide;
+import com.example.bnvtest.model.Category;
 
-    public CardAdapter(String[] captions, int[] imageIds){
-        this.captions = captions;
-        this.imageIds = imageIds;
+import java.util.List;
+
+public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
+
+    private List<Category> items;
+
+    public CardAdapter(List<Category> items){
+        this.items = items;
     }
 
     @NonNull
@@ -39,13 +43,13 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        final Category category = items.get(position);
         CardView cardView = holder.cardView;
         TextView txt = cardView.findViewById(R.id.CardText);
         ImageView img = cardView.findViewById(R.id.CardImage);
 
-        Drawable dr = ContextCompat.getDrawable(cardView.getContext(), imageIds[position]);
-        txt.setText(captions[position]);
-        img.setImageDrawable(dr);
+        Glide.with(cardView.getContext()).load(category.getCatImage()).into(img);
+        txt.setText(category.getCatName());
         cardView.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -62,7 +66,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return captions.length;
+        return items.size();
     }
 
 

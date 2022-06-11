@@ -11,7 +11,7 @@ public class MenuMockUp {
         new MenuC("Diner","3asha", R.drawable.diner, "lstDNR"),
         new MenuC("Hot Drinks","mashrobat sa7ina", R.drawable.hot, "lstHTDRNK"),
         new MenuC("Cold Drinks","mashrobat barida", R.drawable.cold, "lstCLDDRNK"),
-        new MenuC("BEER","beeraaa", R.drawable.beer, "lstBEER"),
+        new MenuC("Sweets","beeraaa", R.drawable.beer, "lstBEER"),
         new MenuC("Sheesha","argila", R.drawable.sheesha, "lstShsh")
     };
 
