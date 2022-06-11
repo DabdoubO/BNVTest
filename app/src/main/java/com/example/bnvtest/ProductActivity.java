@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +15,6 @@ import com.android.volley.NetworkError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
@@ -24,7 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bnvtest.model.Category;
-import com.example.bnvtest.model.MenuMockUp;
+import com.example.bnvtest.model.Product;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,7 +31,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ProductActivity extends AppCompatActivity {
-    private RequestQueue queue;
     private RecyclerView recycler;
     private static  final String BASE_URL = "http://10.0.2.2:84/project/get_products.php";
     @Override
@@ -43,10 +40,10 @@ public class ProductActivity extends AppCompatActivity {
         recycler = findViewById(R.id.products);
 
         Intent intent = getIntent();
-        String selected = intent.getStringExtra("SELECTED");
+        int selected = intent.getIntExtra("SELECTED", 0);
 
         TextView txv = findViewById(R.id.prod);
-        txv.setText(selected);
+        txv.setText(selected+"");
 
 
         getCat();
@@ -57,19 +54,21 @@ public class ProductActivity extends AppCompatActivity {
                 null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                ArrayList<Category> categories =new ArrayList<>();
+                ArrayList<Product> products =new ArrayList<>();
 
                 for (int i = 0; i < response.length(); i++){
                     try {
                         JSONObject obj = response.getJSONObject(i);
-                        categories.add(new Category(obj.getInt("catId"), obj.getString("catName"),
-                                obj.getString("catImage")));
+                        products.add(new Product(obj.getInt("productId"), obj.getInt("catId"),
+                                obj.getString("productName"), obj.getString("productImage"),
+                                obj.getInt("price"), obj.getString("descrip"), obj.getInt("rateAvg"),
+                                obj.getInt("rateCounter"), obj.getInt("likes")));
 
                     }catch(JSONException exception){
                         Log.d("Error", exception.toString());
                     }
                 }
-                CardAdapter adapter = new CardAdapter(categories);
+                PCardAdapter adapter = new PCardAdapter(products);
                 recycler.setAdapter(adapter);
 
             }

@@ -1,32 +1,26 @@
 package com.example.bnvtest;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.bnvtest.model.Category;
+import com.example.bnvtest.model.Product;
 
 import java.util.List;
 
-public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
+public class PCardAdapter extends RecyclerView.Adapter<PCardAdapter.ViewHolder> {
+    private List<Product> items;
 
-    private List<Category> items;
-
-    public CardAdapter(List<Category> items){
+    public PCardAdapter(List<Product> items){
         this.items = items;
     }
 
@@ -42,19 +36,19 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Category category = items.get(position);
+    public void onBindViewHolder(@NonNull PCardAdapter.ViewHolder holder, int position) {
+        final Product product = items.get(position);
         CardView cardView = holder.cardView;
         TextView txt = cardView.findViewById(R.id.CardText);
         ImageView img = cardView.findViewById(R.id.CardImage);
 
-        Glide.with(cardView.getContext()).load(category.getCatImage()).into(img);
-        txt.setText(category.getCatName());
+        Glide.with(cardView.getContext()).load(product.getProductImage()).into(img);
+        txt.setText(product.getProductName());
         cardView.setOnClickListener( new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(cardView.getContext(), ProductActivity.class);
-                intent.putExtra("SELECTED", items.get(holder.getAdapterPosition()).getCatId());
+                Intent intent = new Intent(cardView.getContext(), ProductDetailsActivity.class);
+                intent.putExtra("SELECTED", items.get(holder.getAdapterPosition()).getProductId());
                 cardView.getContext().startActivity(intent);
             }
         });
@@ -73,5 +67,4 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
             this.cardView = cardView;
         }
     }
-
 }

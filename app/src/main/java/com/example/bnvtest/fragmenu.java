@@ -1,13 +1,10 @@
 package com.example.bnvtest;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,7 +18,6 @@ import com.android.volley.NetworkError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
@@ -29,8 +25,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bnvtest.model.Category;
-import com.example.bnvtest.model.MenuC;
-import com.example.bnvtest.model.MenuMockUp;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,7 +33,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class fragmenu extends Fragment {
-    private RequestQueue queue;
     private RecyclerView recycler;
     private static  final String BASE_URL = "http://10.0.2.2:84/project/get_cats.php";
     @Nullable
