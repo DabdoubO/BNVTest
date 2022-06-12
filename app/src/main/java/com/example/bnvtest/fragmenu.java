@@ -35,11 +35,14 @@ import java.util.ArrayList;
 public class fragmenu extends Fragment {
     private RecyclerView recycler;
     private static  final String BASE_URL = "http://10.0.2.2:84/project/get_cats.php";
+    int user;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmenu, container,false);
         recycler = view.findViewById(R.id.menu_recycler);
+        MainActivity act = (MainActivity) getActivity();
+        user = act.getUser();
 
         getCat(view);
         recycler.setLayoutManager(new LinearLayoutManager(view.getContext()));
@@ -63,7 +66,7 @@ public class fragmenu extends Fragment {
                         Log.d("Error", exception.toString());
                     }
                 }
-                CardAdapter adapter = new CardAdapter(categories);
+                CardAdapter adapter = new CardAdapter(categories,user);
                 recycler.setAdapter(adapter);
 
             }

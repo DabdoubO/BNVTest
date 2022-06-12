@@ -34,6 +34,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/login_input"
@@ -62,14 +63,15 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtLoginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/login_input"
                 android:hint="Password"
+                android:inputType="textPassword"
                 android:textColor="@color/white"
-                android:textSize="15sp"
 
-                />
+                android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.cardview.widget.CardView>
 
@@ -81,7 +83,7 @@
         >
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/chBox_RememberMe"
             android:layout_width="81dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -101,12 +103,12 @@
         android:id="@+id/login_button"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:text="Login"
-        android:textSize="20dp"
-        android:background="@drawable/btn_login"
         android:layout_marginTop="20dp"
+        android:background="@drawable/btn_login"
+        android:onClick="btnLogin_onClick"
+        android:text="Login"
 
-        />
+        android:textSize="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -128,10 +130,10 @@
             android:id="@+id/sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign up"
             android:clickable="true"
-            android:textColor="#86AE18"
-            />
+            android:onClick="signup_onClick"
+            android:text="Sign up"
+            android:textColor="#86AE18" />
     </LinearLayout>
 
 </LinearLayout>

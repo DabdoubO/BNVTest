@@ -19,9 +19,10 @@ import java.util.List;
 
 public class PCardAdapter extends RecyclerView.Adapter<PCardAdapter.ViewHolder> {
     private List<Product> items;
-
-    public PCardAdapter(List<Product> items){
+    int user;
+    public PCardAdapter(List<Product> items, int user){
         this.items = items;
+        this.user = user;
     }
 
     @NonNull
@@ -49,6 +50,7 @@ public class PCardAdapter extends RecyclerView.Adapter<PCardAdapter.ViewHolder> 
             public void onClick(View v){
                 Intent intent = new Intent(cardView.getContext(), ProductDetailsActivity.class);
                 intent.putExtra("SELECTED", items.get(holder.getAdapterPosition()).getProductId());
+                intent.putExtra("USER", user);
                 cardView.getContext().startActivity(intent);
             }
         });

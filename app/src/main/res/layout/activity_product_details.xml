@@ -114,12 +114,12 @@
             android:id="@+id/add_to_cart"
             android:layout_width="250dp"
             android:layout_height="70dp"
-            android:text="Add To Cart"
             android:layout_marginTop="20dp"
-            android:textSize="20dp"
             android:background="@drawable/btn_login"
             android:fontFamily="sans-serif-medium"
-            />
+            android:onClick="btn_addToCart_onClick"
+            android:text="Add To Cart"
+            android:textSize="20dp" />
 
     </LinearLayout>
     </ScrollView>

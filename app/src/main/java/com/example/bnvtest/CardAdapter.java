@@ -25,9 +25,10 @@ import java.util.List;
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
 
     private List<Category> items;
+    int user;
 
-    public CardAdapter(List<Category> items){
-        this.items = items;
+    public CardAdapter(List<Category> items, int user){
+        this.items = items;this.user = user;
     }
 
     @NonNull
@@ -36,7 +37,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
         CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card,
                 parent,
                 false);
-
 
         return new ViewHolder(v);
     }
@@ -56,6 +56,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
                 Intent intent = new Intent(cardView.getContext(), ProductActivity.class);
                 intent.putExtra("SELECTED", items.get(holder.getAdapterPosition()).getCatId());
                 intent.putExtra("NAME", items.get(holder.getAdapterPosition()).getCatName());
+                intent.putExtra("USER", user);
                 cardView.getContext().startActivity(intent);
             }
         });

@@ -25,6 +25,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.bnvtest.model.Product;
+import com.example.bnvtest.model.UserInfo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,6 +40,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     ImageView image;
     TextView price;
     TextView description;
+    int user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +50,20 @@ public class ProductDetailsActivity extends AppCompatActivity {
         price = findViewById(R.id.product_price);
         description = findViewById(R.id.product_disc);
 
+
         Intent intent = getIntent();
         int selected = intent.getIntExtra("SELECTED", 0);
+        user = intent.getIntExtra("USER", 0);
 
 
         BASE_URL = "http://10.0.2.2:84/project/get_prod_prodid.php?productid="+selected;
 
         getProductInfo();
+
+
+    }
+
+    private void btn_addToCart_onClick(){
 
 
     }

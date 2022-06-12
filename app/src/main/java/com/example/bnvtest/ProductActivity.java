@@ -33,6 +33,7 @@ import java.util.ArrayList;
 public class ProductActivity extends AppCompatActivity {
     private RecyclerView recycler;
     private String BASE_URL;
+    int user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,7 @@ public class ProductActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int selected = intent.getIntExtra("SELECTED", 0);
         String name = intent.getStringExtra("NAME");
+        user = intent.getIntExtra("USER", 0);
 
         TextView txv = findViewById(R.id.prod);
         txv.setText(name);
@@ -69,7 +71,7 @@ public class ProductActivity extends AppCompatActivity {
                         Log.d("Error", exception.toString());
                     }
                 }
-                PCardAdapter adapter = new PCardAdapter(products);
+                PCardAdapter adapter = new PCardAdapter(products, user);
                 recycler.setAdapter(adapter);
 
             }
