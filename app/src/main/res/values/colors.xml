@@ -8,4 +8,19 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="trans">#33FFFFFF</color>
+    <color name="green">#00FFFFFF</color>
+    <color name="darkWhite">#70FFFFFF</color>
+    <color name="white01">#CCCCCC</color>
+    <color name="whiteGreen">#E09EFF00</color>
+    <color name="DarkGreen">#E04E8F1A</color>
+    <color name="darkBlack">#E0171914</color>
+    <color name="WhiteBlack">#E03E3E3E</color>
+    <color name="GreenIu">#8A9EB23B</color>
+    <color name="BlackBlack">#8D000000</color>
+    <color name="GreenBlack">#315E1C</color>
+    <color name="WHiteGreen">#9E383A28</color>
+    <color name="WhiteBlackk">#F5242424</color>
+    <color name="Blackkk">#E0171914</color>
+    <color name="BlackkWhitee">#E03E3E3E</color>
+    <color name="AndroBlack">#F5303030</color>
 </resources>

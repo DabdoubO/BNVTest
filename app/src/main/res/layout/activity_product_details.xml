@@ -26,7 +26,7 @@
         android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
 
@@ -42,15 +42,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 >
 
                 <TextView
                     android:id="@+id/product_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Product Name"
-                    android:textSize="30dp"
+                    android:text="@string/product_name"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     />
@@ -60,9 +60,9 @@
                     android:id="@+id/product_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="$"
+
                     android:textSize="20dp"
-                    android:textColor="#CCCCCC"
+                    android:textColor="@color/white01"
                     />
 
                 <ImageView
@@ -91,7 +91,7 @@
                     android:id="@+id/rate_now"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="Rate Know"
+                    android:text="@string/rate_know"
                     android:textAlignment="center"
                     android:layout_marginTop="10dp"
                     android:clickable="true"
@@ -106,7 +106,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="40dp"
             android:padding="15dp"
-            android:text=" Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged"
+            android:text="@string/lorem_ipsum_is_simply_dummy_text_of_the_printing_and_typesetting_industry_lorem_ipsum_has_been_the_industry_s_standard_dummy_text_ever_since_the_1500s_when_an_unknown_printer_took_a_galley_of_type_and_scrambled_it_to_make_a_type_specimen_book_it_has_survived_not_only_five_centuries_but_also_the_leap_into_electronic_typesetting_remaining_essentially_unchanged"
             android:textColor="@color/white"
             android:textSize="18dp" />
 
@@ -118,8 +118,8 @@
             android:background="@drawable/btn_login"
             android:fontFamily="sans-serif-medium"
             android:onClick="btn_addToCart_onClick"
-            android:text="Add To Cart"
-            android:textSize="20dp" />
+            android:text="@string/add_to_cart"
+            android:textSize="20sp" />
 
     </LinearLayout>
     </ScrollView>

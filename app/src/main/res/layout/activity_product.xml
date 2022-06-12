@@ -11,7 +11,7 @@
         android:id="@+id/prod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="hello"
+        android:text="@string/hello"
         android:textSize="50dp"
         android:gravity="center"
         android:padding="30dp"/>
