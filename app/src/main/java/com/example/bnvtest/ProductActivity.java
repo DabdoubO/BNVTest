@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 public class ProductActivity extends AppCompatActivity {
     private RecyclerView recycler;
-    private static  final String BASE_URL = "http://10.0.2.2:84/project/get_products.php";
+    private String BASE_URL;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,15 +41,16 @@ public class ProductActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int selected = intent.getIntExtra("SELECTED", 0);
+        String name = intent.getStringExtra("NAME");
 
         TextView txv = findViewById(R.id.prod);
-        txv.setText(selected+"");
+        txv.setText(name);
+        BASE_URL = "http://10.0.2.2:84/project/get_prod_catid.php?catid="+selected;
 
-
-        getCat();
+        getProducts();
         recycler.setLayoutManager(new LinearLayoutManager(this));
     }
-    private void getCat(){
+    private void getProducts(){
         JsonArrayRequest request =new JsonArrayRequest(Request.Method.GET, BASE_URL,
                 null, new Response.Listener<JSONArray>() {
             @Override

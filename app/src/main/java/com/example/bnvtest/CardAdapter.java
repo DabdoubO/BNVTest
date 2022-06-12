@@ -55,6 +55,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
             public void onClick(View v){
                 Intent intent = new Intent(cardView.getContext(), ProductActivity.class);
                 intent.putExtra("SELECTED", items.get(holder.getAdapterPosition()).getCatId());
+                intent.putExtra("NAME", items.get(holder.getAdapterPosition()).getCatName());
                 cardView.getContext().startActivity(intent);
             }
         });
