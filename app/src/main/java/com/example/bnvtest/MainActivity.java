@@ -11,6 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     int user = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,5 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
-
+    public int getUser(){
+        return user;
+    }
 }

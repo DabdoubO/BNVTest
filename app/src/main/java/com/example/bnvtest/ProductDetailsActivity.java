@@ -2,9 +2,11 @@ package com.example.bnvtest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.example.bnvtest.model.Product;
 
 import org.json.JSONArray;
@@ -30,20 +33,24 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ProductDetailsActivity extends AppCompatActivity {
+    Context context = this;
     private String BASE_URL;
-    TextView det;
+    TextView name;
+    ImageView image;
+    TextView price;
+    TextView description;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
-        RelativeLayout back = findViewById(R.id.back);
-        TextView name = findViewById(R.id.detail);
-        det = findViewById(R.id.det);
+        name = findViewById(R.id.product_name);
+        image = findViewById(R.id.product_image);
+        price = findViewById(R.id.product_price);
+        description = findViewById(R.id.product_disc);
 
         Intent intent = getIntent();
         int selected = intent.getIntExtra("SELECTED", 0);
 
-        name.setText(selected+"");
 
         BASE_URL = "http://10.0.2.2:84/project/get_prod_prodid.php?productid="+selected;
 
@@ -76,7 +83,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 } catch(JSONException exception){
                     Log.d("Error", exception.toString());
                 }
-                det.setText(product.getDescrip());
+                name.setText(product.getProductName());
+                Glide.with(context).load(product.getProductImage()).into(image);
+                price.setText(product.getPrice() + " $");
+                description.setText(product.getDescrip());
 
 
             }

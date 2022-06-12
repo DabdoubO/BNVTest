@@ -14,8 +14,7 @@
         android:cropToPadding="true"
         android:scaleType="centerCrop"
         android:src="@drawable/diner"
-        app:tint="@color/trans"
-        android:tintMode="add"/>
+        />
     <TextView
         android:id="@+id/CardText"
         android:layout_width="match_parent"
